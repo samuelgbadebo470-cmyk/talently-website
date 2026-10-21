@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="talently.jpeg">
+    <title>Talently Football Academy</title>
+    <style>
+        :root {
+            --o: #f29b30;
+            --b: #000;
+            --c: #141414;
+            --t: #f3f3f3
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--b);
+            color: var(--t);
+            font: 16px/1.5 system-ui, Arial, sans-serif
+        }
+
+        h1,
+        h2,
+        h3,
+        button,
+        .logo b {
+            font-family: Impact, 'Arial Narrow Bold', Arial, sans-serif;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--o);
+            margin: .3em 0
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-bottom: 2px solid var(--o);
+            flex-wrap: wrap
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: auto;
+            font-size: 20px
+        }
+
+        .logo img {
+            height: 46px
+        }
+
+        button {
+            background: var(--o);
+            color: #000;
+            border: 0;
+            border-radius: 6px;
+            padding: 9px 16px;
+            cursor: pointer;
+            font-size: 15px
+        }
+
+        button.g {
+            background: none;
+            color: var(--o);
+            border: 1px solid var(--o)
+        }
+
+        button.r {
+            background: #c0392b;
+            color: #fff
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 16px
+        }
+
+        .card {
+            background: var(--c);
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 14px 0
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 4px;
+            color: var(--o);
+            font-size: 14px
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            background: #0b0b0b;
+            color: var(--t);
+            font-size: 15px
+        }
+
+        .msg {
+            margin-top: 12px;
+            padding: 10px;
+            border-radius: 6px
+        }
+
+        .msg:empty {
+            display: none
+        }
+
+        .ok {
+            background: #16341f;
+            color: #8de3a4
+        }
+
+        .err {
+            background: #3a1616;
+            color: #ff9b9b
+        }
+
+        .hero {
+            text-align: center;
+            padding: 30px 0
+        }
+
+        .hero img {
+            width: 200px;
+            max-width: 60%
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #2a2a2a;
+            flex-wrap: wrap
+        }
+
+        .who {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .av {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--o);
+            background: #222
+        }
+
+        .pf {
+            text-align: center
+        }
+
+        .pf .av {
+            width: 130px;
+            height: 130px
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .badge {
+            display: inline-block;
+            background: #16341f;
+            color: #8de3a4;
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-size: 13px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px
+        }
+
+        .pc {
+            background: #0b0b0b;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center
+        }
+
+        .pc.me {
+            border-color: var(--o)
+        }
+
+        .pc .av {
+            width: 80px;
+            height: 80px
+        }
+
+        .soc {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .soc a {
+            border: 1px solid var(--o);
+            color: var(--o);
+            padding: 9px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600
+        }
+
+        .soc a:hover {
+            background: var(--o);
+            color: #000
+        }
+
+        #off {
+            background: #3a2a10;
+            color: var(--o);
+            text-align: center;
+            padding: 6px;
+            font-size: 14px
+        }
+
+        footer {
+            border-top: 2px solid var(--o);
+            margin-top: 30px;
+            padding: 24px 16px;
+            text-align: center;
+            color: #999;
+            font-size: 14px
+        }
+
+        footer img {
+            height: 56px
+        }
+
+        footer b {
+            display: block;
+            margin: 6px 0;
+            color: var(--o);
+            font-family: Impact, Arial, sans-serif;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            font-size: 18px
+        }
+
+        footer a {
+            color: var(--o);
+            text-decoration: none;
+            margin: 0 8px;
+            cursor: pointer
+        }
+
+        #ld {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            transition: opacity .5s, visibility .5s
+        }
+
+        #ld.h {
+            opacity: 0;
+            visibility: hidden
+        }
+
+        #ld img {
+            width: 130px;
+            animation: pulse 1.4s ease-in-out infinite
+        }
+
+        .ring {
+            width: 44px;
+            height: 44px;
+            border: 4px solid #2a2a2a;
+            border-top-color: var(--o);
+            border-radius: 50%;
+            animation: spin .8s linear infinite
+        }
+
+        .sp {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #2a2a2a;
+            border-top-color: var(--o);
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
+            vertical-align: middle
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes pulse {
+            50% {
+                transform: scale(1.1);
+                opacity: .75
+            }
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .rv.in {
+            opacity: 1;
+            transform: none
+        }
+
+        .pc.rv:nth-child(2) {
+            transition-delay: .1s
+        }
+
+        .pc.rv:nth-child(3) {
+            transition-delay: .2s
+        }
+
+        .pc.rv:nth-child(4) {
+            transition-delay: .3s
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .rv {
+                opacity: 1;
+                transform: none;
+                transition: none
+            }
+
+            #ld img,
+            .ring,
+            .sp {
+                animation: none
+            }
+        }
+
+        .small {
+            color: #999;
+            font-size: 13px
+        }
+
+        [hidden] {
+            display: none !important
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ld"><img src="talently.jpeg" alt="">
+        <div class="ring"></div>
+    </div>
+    <nav>
+        <div class="logo"><img src="talently.jpeg" alt=""><b>Talently Football Academy</b></div><span id="nav"></span>
+    </nav>
+    <div id="off" hidden>You are offline. Showing saved data; changes will sync when you are back online.</div>
+    <main>
+        <section class="v" id="v-home">
+            <div class="hero"><img src="talently.jpeg" alt="">
+                <h1>Talently Football Academy &amp; Agency</h1>
+                <p>Train. Get seen. Go pro.</p><button onclick="view('signup')">Join the academy</button> <button
+                    class="g" onclick="view('signin')">Sign in</button>
+            </div>
+            <div class="card">
+                <h2>Player training campaign</h2>
+                <p>Our training campaign takes players from raw talent to match-ready. Sign up, get approved by the
+                    coach, and join the squad.</p>
+                <div class="grid">
+                    <div class="pc">
+                        <h3>Technical</h3>
+                        <div class="small">Passing, dribbling, first touch and finishing</div>
+                    </div>
+                    <div class="pc">
+                        <h3>Fitness</h3>
+                        <div class="small">Speed, strength, stamina and injury prevention</div>
+                    </div>
+                    <div class="pc">
+                        <h3>Tactical</h3>
+                        <div class="small">Positioning, game reading and team shape</div>
+                    </div>
+                    <div class="pc">
+                        <h3>Match play</h3>
+                        <div class="small">Fixtures and showcases to get you noticed</div>
+                    </div>
+                </div>
+                <p><button onclick="view('signup')">Join the campaign</button></p>
+            </div>
+            <div class="card">
+                <h2>Next fixture</h2>
+                <div class="fx"><span class="sp"></span></div>
+            </div>
+            <div class="card">
+                <h2>News feed</h2>
+                <div class="nw"><span class="sp"></span></div>
+            </div>
+            <div class="card">
+                <h2>Contact us</h2>
+                <p>Follow and message us on social media.</p>
+                <div class="soc"><a href="" target="_blank" rel="noopener"
+                        onclick="return !!this.getAttribute('href')">Facebook</a><a href="" target="_blank"
+                        rel="noopener" onclick="return !!this.getAttribute('href')">TikTok</a><a href="" target="_blank"
+                        rel="noopener" onclick="return !!this.getAttribute('href')">Instagram</a></div>
+            </div>
+        </section>
+
+        <section class="v" id="v-signup" hidden>
+            <div class="card">
+                <h2>Sign up</h2>
+                <label>Full name</label><input id="su-name"><label>Position</label><select id="su-pos"></select>
+                <label>Stronger foot</label><select id="su-foot">
+                    <option>Right</option>
+                    <option>Left</option>
+                    <option>Both</option>
+                </select>
+                <label>Profile photo</label><input id="su-photo" type="file" accept="image/*"><label>Email
+                    address</label><input id="su-email" type="email">
+                <label>Username</label><input id="su-user" autocapitalize="none"><label>Password (min 6
+                    characters)</label><input id="su-pass" type="password">
+                <p><button onclick="signup()">Create account</button></p>
+                <div class="msg" id="su-msg"></div>
+            </div>
+        </section>
+
+        <section class="v" id="v-signin" hidden>
+            <div class="card">
+                <h2>Sign in</h2>
+                <label>Username</label><input id="si-user" autocapitalize="none"><label>Password</label><input
+                    id="si-pass" type="password">
+                <p><button onclick="signin()">Sign in</button></p>
+                <div class="msg" id="si-msg"></div>
+            </div>
+        </section>
+
+        <section class="v" id="v-player" hidden>
+            <div class="card pf">
+                <h2>My profile</h2>
+                <div id="prof"></div>
+                <p><button class="g" onclick="$('#np').click()">Change photo</button><input id="np" type="file"
+                        accept="image/*" hidden onchange="newPhoto(this)"></p>
+                <div class="msg" id="pf-msg"></div>
+            </div>
+            <div class="card">
+                <h2>Squad</h2>
+                <div id="squad" class="grid"></div>
+            </div>
+            <div class="card">
+                <h2>Next fixture</h2>
+                <div class="fx"></div>
+            </div>
+            <div class="card">
+                <h2>News feed</h2>
+                <div class="nw"></div>
+            </div>
+        </section>
+
+        <section class="v" id="v-admin" hidden>
+            <h1>Coach dashboard</h1>
+            <div class="tabs"><button onclick="tab('ap')">Approvals</button><button class="g"
+                    onclick="tab('pl')">Players</button><button class="g" onclick="tab('ne')">News</button><button
+                    class="g" onclick="tab('fi')">Fixture</button></div>
+            <div class="card t" id="t-ap">
+                <h2>Pending accounts</h2>
+                <div id="pend"></div>
+            </div>
+            <div class="card t" id="t-pl" hidden>
+                <h2>Players (position only)</h2>
+                <div id="plist"></div>
+            </div>
+            <div class="card t" id="t-ne" hidden>
+                <h2>Post news</h2><input id="n-title" placeholder="Headline"><br><br><textarea id="n-body" rows="4"
+                    placeholder="Details"></textarea>
+                <p><button onclick="postNews()">Publish</button></p>
+                <div id="nlist" class="nw"></div>
+            </div>
+            <div class="card t" id="t-fi" hidden>
+                <h2>Update next fixture</h2><label>Opponent</label><input id="f-opp"><label>Date &amp;
+                    time</label><input id="f-date" type="datetime-local"><label>Venue</label><input id="f-ven">
+                <p><button onclick="saveFix()">Save fixture</button></p>
+                <div class="msg" id="f-msg"></div>
+            </div>
+        </section>
+    </main>
+    <footer><img src="talently.jpeg" alt="Talently Football Academy">
+        <b>Talently Football Academy &amp; Agency</b>
+        <div><a onclick="view('home')">Home</a><a onclick="view('signin')">Sign in</a><a onclick="view('signup')">Sign
+                up</a></div>
+                <span class="con"><a href="mailto:talentlyfaltd@gmail.com">contact us</a> </span>
+        <p>&copy; <span id="yr"></span> Talently Football Academy &amp; Agency. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-app-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/firebase@10.12.2/firebase-firestore-compat.js"></script>
+    <script>
+        // ===== 1. PASTE YOUR FIREBASE CONFIG (Project settings > Your apps > Web) =====
+        const CFG = { apiKey: "AIzaSyDdIZ68535PJ4Hsnji3z0Pv8lW5iVkTrPE", authDomain: "talentlypfa.firebaseapp.com", projectId: "talentlypfa", storageBucket: "talentlypfa.firebasestorage.app", messagingSenderId: "641559662245", appId: "1:641559662245:web:83f531f7740df8cac1074c", measurementId: "G-32ECQKGC8N" };
+        // ===== 2. COACH LOGIN EMAIL(S): create these users in Firebase Auth console =====
+        const COACHES = ["coach@talently.com"];
+        firebase.initializeApp(CFG); const auth = firebase.auth(), db = firebase.firestore(); db.enablePersistence({ synchronizeTabs: true }).catch(() => { });
+        const $ = s => document.querySelector(s), POS = ["GK", "CB", "LB", "RB", "CDM", "CM", "CAM", "LW", "RW", "ST"];
+        let busy = false, me = null;
+        const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+        const opts = (sel) => POS.map(p => `<option ${p === sel ? 'selected' : ''}>${p}</option>`).join('');
+        $('#su-pos').innerHTML = opts();
+        function view(v) { document.querySelectorAll('.v').forEach(e => e.hidden = e.id !== 'v-' + v); scrollTo(0, 0) }
+        function msg(id, t, ok) { const e = $('#' + id); e.textContent = t; e.className = 'msg ' + (ok ? 'ok' : 'err') }
+        function nav(u) { $('#nav').innerHTML = u ? `<button class="g" onclick="view('${COACHES.includes(u.email) ? 'admin' : 'player'}')">Dashboard</button> <button onclick="auth.signOut()">Log out</button>` : `<button class="g" onclick="view('signin')">Sign in</button> <button onclick="view('signup')">Sign up</button>` }
+        function resize(f) { return new Promise((ok, no) => { const r = new FileReader(); r.onload = () => { const i = new Image(); i.onload = () => { const c = document.createElement('canvas'); c.width = c.height = 240; const s = Math.min(i.width, i.height); c.getContext('2d').drawImage(i, (i.width - s) / 2, (i.height - s) / 2, s, s, 0, 0, 240, 240); ok(c.toDataURL('image/jpeg', .8)) }; i.onerror = no; i.src = r.result }; r.readAsDataURL(f) }) }
+        async function signup() {
+            const v = k => $('#su-' + k).value.trim(), f = $('#su-photo').files[0], user = v('user').toLowerCase();
+            if (!v('name') || !v('email') || !user || !f || $('#su-pass').value.length < 6) return msg('su-msg', 'Please fill every field, attach a photo and use a password of 6+ characters.');
+            if (!/^[a-z0-9_.]+$/.test(user)) return msg('su-msg', 'Username: letters, numbers, _ and . only.');
+            busy = true; ld(1); try {
+                if ((await db.collection('usernames').doc(user).get()).exists) throw { message: 'That username is taken.' };
+                const photo = await resize(f), cr = await auth.createUserWithEmailAndPassword(v('email'), $('#su-pass').value);
+                await db.collection('users').doc(cr.user.uid).set({ name: v('name'), position: v('pos'), foot: v('foot'), username: user, photo, status: 'pending', created: firebase.firestore.FieldValue.serverTimestamp() });
+                await db.collection('usernames').doc(user).set({ email: v('email') });
+                await auth.signOut(); document.querySelectorAll('#v-signup input').forEach(i => i.value = '');
+                msg('su-msg', 'Your account creation is on the way. The coach will review your details and approve your account.', 1);
+            } catch (e) { msg('su-msg', e.message) } busy = false; ld(0)
+        }
+        async function route(u) {
+            nav(u); me = null; if (!u) return view('home');
+            if (COACHES.includes(u.email)) { view('admin'); tab('ap'); return loadAdmin() }
+            const s = await db.collection('users').doc(u.uid).get();
+            if (!s.exists || s.data().status !== 'approved') { const st = s.exists && s.data().status; await auth.signOut(); view('signin'); msg('si-msg', st === 'rejected' ? 'Your application was not approved.' : 'Your account creation is on the way. You can sign in once the coach approves it.'); return }
+            me = s.data(); $('#prof').innerHTML = `<img class="av" src="${esc(me.photo)}"><h3>${esc(me.name)}</h3><span class="badge">&#10003; Approved player</span><p>@${esc(me.username)}</p><p><b>Position:</b> ${esc(me.position)} &nbsp; <b>Stronger foot:</b> ${esc(me.foot)}</p>`; view('player'); loadSquad()
+        }
+        async function signin() {
+            const u = $('#si-user').value.trim().toLowerCase(), p = $('#si-pass').value; if (!u || !p) return msg('si-msg', 'Enter your username and password.');
+            busy = true; ld(1); try {
+                let email = u; if (!u.includes('@')) { const d = await db.collection('usernames').doc(u).get(); if (!d.exists) throw {}; email = d.data().email }
+                const c = await auth.signInWithEmailAndPassword(email, p); $('#si-msg').textContent = ''; $('#si-msg').className = 'msg'; await route(c.user)
+            }
+            catch (e) { msg('si-msg', 'Invalid username or password.') } busy = false; ld(0)
+        }
+        auth.onAuthStateChanged(u => { if (!busy) route(u) });
+        // ----- public feed -----
+        async function feed() {
+            try {
+                const f = await db.collection('config').doc('fixture').get(), x = f.exists ? f.data() : null;
+                const h = x ? `<h3>vs ${esc(x.opponent)}</h3><p>${new Date(x.date).toLocaleString([], { dateStyle: 'full', timeStyle: 'short' })}<br>${esc(x.venue)}</p>` : '<p class="small">No fixture announced yet.</p>';
+                document.querySelectorAll('.fx').forEach(e => e.innerHTML = h);
+                const n = await db.collection('news').orderBy('ts', 'desc').limit(15).get();
+                window.NEWS = n.docs; const isA = me && me.coach;
+                document.querySelectorAll('.nw').forEach(e => e.innerHTML = n.empty ? '<p class="small">No news yet.</p>' : n.docs.map(d => { const x = d.data(); return `<div class="row"><div><h3>${esc(x.title)}</h3><div>${esc(x.body)}</div><div class="small">${x.ts ? x.ts.toDate().toLocaleDateString() : ''}</div></div>${e.id === 'nlist' ? `<button class="r" onclick="delNews('${d.id}')">Delete</button>` : ''}</div>` }).join(''))
+            } catch (e) { document.querySelectorAll('.fx,.nw').forEach(x => x.innerHTML = '<p class="small">Could not load. Check your Firebase config and rules.</p>') }
+        }
+        $('#yr').textContent = new Date().getFullYear();
+        const ld = s => $('#ld').classList.toggle('h', !s); let boot = 1; const t0 = Date.now();
+        addEventListener('load', () => setTimeout(() => { boot = 0; ld(0) }, Math.max(0, 900 - (Date.now() - t0)))); setTimeout(() => { if (boot) ld(0) }, 4000);
+        const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: .12 });
+        const rv = () => document.querySelectorAll('.card,.pc,.hero,footer').forEach(e => { if (!e.dataset.r) { e.dataset.r = 1; e.classList.add('rv'); io.observe(e) } });
+        rv(); new MutationObserver(rv).observe(document.body, { childList: true, subtree: true });
+        feed();
+        const on = () => { $('#off').hidden = navigator.onLine; if (navigator.onLine) feed() }; addEventListener('online', on); addEventListener('offline', on); on();
+        if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => { }));
+        // ----- player extras -----
+        async function loadSquad() {
+            try {
+                const a = await db.collection('users').where('status', '==', 'approved').get();
+                const L = a.docs.map(d => d.data()).sort((x, y) => POS.indexOf(x.position) - POS.indexOf(y.position));
+                $('#squad').innerHTML = L.map(x => `<div class="pc ${x.username === me.username ? 'me' : ''}"><img class="av" src="${esc(x.photo)}"><div><b>${esc(x.name)}</b></div><div class="small">${esc(x.position)} &middot; ${esc(x.foot)} foot</div></div>`).join('')
+            } catch (e) { $('#squad').innerHTML = '<p class="small">Squad unavailable.</p>' }
+        }
+        async function newPhoto(i) { const f = i.files[0]; if (!f) return; try { const photo = await resize(f); await db.collection('users').doc(auth.currentUser.uid).update({ photo }); me.photo = photo; $('#prof .av').src = photo; msg('pf-msg', 'Photo updated.', 1); loadSquad() } catch (e) { msg('pf-msg', 'Could not update photo.') } i.value = '' }
+        // ----- admin -----
+        function tab(t) { document.querySelectorAll('.t').forEach(e => e.hidden = e.id !== 't-' + t); if (t === 'ne' || t === 'fi') feed() }
+        async function loadAdmin() {
+            me = { coach: 1 };
+            const p = await db.collection('users').where('status', '==', 'pending').get();
+            $('#pend').innerHTML = p.empty ? '<p class="small">Nothing waiting.</p>' : p.docs.map(d => { const x = d.data(); return `<div class="row"><div class="who"><img class="av" src="${esc(x.photo)}"><div><b>${esc(x.name)}</b> (@${esc(x.username)})<br><span class="small">${esc(x.position)} · ${esc(x.foot)} foot</span></div></div><div><button onclick="setSt('${d.id}','approved')">Approve</button> <button class="r" onclick="setSt('${d.id}','rejected')">Reject</button></div></div>` }).join('');
+            const a = await db.collection('users').where('status', '==', 'approved').get();
+            $('#plist').innerHTML = a.empty ? '<p class="small">No approved players yet.</p>' : a.docs.map(d => { const x = d.data(); return `<div class="row"><div class="who"><img class="av" src="${esc(x.photo)}"><b>${esc(x.name)}</b></div><select style="width:110px" onchange="setPos('${d.id}',this.value)">${opts(x.position)}</select></div>` }).join('');
+            const f = await db.collection('config').doc('fixture').get(); if (f.exists) { const x = f.data(); $('#f-opp').value = x.opponent; $('#f-date').value = x.date; $('#f-ven').value = x.venue }
+        }
+        const setSt = async (id, s) => { await db.collection('users').doc(id).update({ status: s }); loadAdmin() };
+        const setPos = (id, p) => db.collection('users').doc(id).update({ position: p });
+        async function postNews() { const t = $('#n-title').value.trim(), b = $('#n-body').value.trim(); if (!t) return; await db.collection('news').add({ title: t, body: b, ts: firebase.firestore.FieldValue.serverTimestamp() }); $('#n-title').value = $('#n-body').value = ''; feed() }
+        const delNews = async id => { await db.collection('news').doc(id).delete(); feed() };
+        async function saveFix() { try { await db.collection('config').doc('fixture').set({ opponent: $('#f-opp').value, date: $('#f-date').value, venue: $('#f-ven').value }); msg('f-msg', 'Fixture updated.', 1); feed() } catch (e) { msg('f-msg', e.message) } }
+    </script>
+</body>
+
+</html>
